@@ -16,12 +16,15 @@ Operating instructions for Claude Code when run from this folder. This file auto
 ./
 ├── daily/        # YYYY-MM-DD.md, one per day, holds everything for that day
 ├── people/       # firstname-lastname.md, one per person
-├── projects/     # slug.md, one per active project
+├── areas/        # slug.md, ongoing areas of work (employers, domains) — not time-bounded
+├── projects/     # slug.md, one per active time-bounded project
 ├── goals/        # slug.md, one per long-running goal or OKR
 ├── todos.md      # global inbox for unscoped todos
 ├── README.md     # index
 └── CLAUDE.md     # this file
 ```
+
+**Areas vs projects:** Areas are ongoing responsibilities with no end date (e.g. an employer, a domain of life like health). Projects are bounded outcomes (ship feature X, launch site Y). Projects can live under an area — link them back to the area file.
 
 ## Core operating principles
 
@@ -39,7 +42,7 @@ Use `[[wiki-links]]` to connect entities. A conversation with Sam about Olly onb
 
 ### 4. **Todos live close to their context**
 
-Project todos go in the project's `## Todos` section. Loose todos go in `todos.md`. Today's active todos also appear in today's daily note `## Todos` section, but the source of truth is the project/goal file.
+Project todos go in the project's `## Todos` section. Area-level work todos (e.g. general employer work) go in the area's `## Todos` section. Loose todos go in `todos.md`. Today's active todos also appear in today's daily note `## Todos` section, but the source of truth is the area/project/goal file.
 
 ### 5. **Show your diffs**
 
@@ -47,7 +50,7 @@ End every file-modifying response with a `## Files touched` block listing each p
 
 ### 6. **Confirmation policy (moderate)**
 
-Just do: create files, append, add todos, log to daily notes, journal entries, create stub person/project files for new names, tick off todos.
+Just do: create files, append, add todos, log to daily notes, journal entries, create stub person/area/project files for new names, tick off todos.
 
 Confirm first: renaming, deleting, merging files, bulk edits across more than 3 files, restructuring section headings, archiving projects.
 
@@ -119,6 +122,43 @@ name: Firstname Lastname
 - 
 ```
 
+### Area — `areas/slug.md`
+
+```markdown
+---
+type: area
+kind: employer  # or domain, responsibility, etc.
+status: active
+started: YYYY-MM-DD
+---
+
+# Area Name
+
+**Kind:** 
+**Role:** 
+**Started:** YYYY-MM-DD
+
+## Context
+
+- 
+
+## Todos
+
+- [ ] 
+
+## Projects
+
+- [[project-slug]]
+
+## People
+
+- [[firstname-lastname]]
+
+## Notes
+
+- 
+```
+
 ### Project — `projects/slug.md`
 
 ```markdown
@@ -183,7 +223,7 @@ status: active
 - **Dates:** ISO `YYYY-MM-DD`, zero-padded. **Times:** 24h `HH:MM`.
 - **Todo syntax:** `- [ ]` open, `- [x]` done, `- [>]` deferred, `- [-]` cancelled. Inline tags: `@person-slug`, `#project-slug`.
 - **Links:** `[[filename-without-extension]]`. Use `[[folder/file]]` only when basename is ambiguous.
-- **Names:** people files `firstname-lastname.md` lowercase hyphenated; projects/goals short-kebab-case.
+- **Names:** people files `firstname-lastname.md` lowercase hyphenated; areas/projects/goals short-kebab-case.
 - New name with no file: create a stub and link to it — don't wait for permission.
 
 ## Daily journaling flow
@@ -198,7 +238,7 @@ status: active
 ## Session start behaviour
 
 1. Read today's daily note (create from template if missing, using the real date from `date +%Y-%m-%d`).
-2. If his opening message references a project/person/goal, read that file too.
+2. If his opening message references an area/project/person/goal, read that file too.
 3. If he hasn't said what he wants, briefly greet and ask; otherwise get on with it.
 
 ## Useful commands
@@ -206,7 +246,7 @@ status: active
 - Today's file: `daily/$(date +%Y-%m-%d).md`
 - Yesterday's note (macOS): `daily/$(date -v-1d +%Y-%m-%d).md`
 - Recent days: `ls -t daily/ | head -7`
-- Stale todos: `grep -rn "^- \[ \]" projects/ goals/ | head -50`
+- Stale todos: `grep -rn "^- \[ \]" areas/ projects/ goals/ | head -50`
 - Mentions of a person: `grep -rln "\[\[{slug}\]\]" .`
 - Search journal entries: `grep -rn "## Journal" daily/ -A 20`
 

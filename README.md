@@ -6,7 +6,8 @@ Personal knowledge vault for Jivesh, operated by Claude Code via [`CLAUDE.md`](C
 
 - `daily/` — one file per day (`YYYY-MM-DD.md`). Holds everything that happened that day, including journal entries.
 - `people/` — one file per person (`firstname-lastname.md`)
-- `projects/` — active projects (`slug.md`)
+- `areas/` — ongoing areas of work like employers or domains (`slug.md`)
+- `projects/` — active time-bounded projects (`slug.md`)
 - `goals/` — long-running goals and OKRs (`slug.md`)
 - `todos.md` — global inbox for loose todos without a clear project home
 - `README.md` — this index
