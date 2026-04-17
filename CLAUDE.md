@@ -221,7 +221,9 @@ status: active
 ## Conventions
 
 - **Dates:** ISO `YYYY-MM-DD`, zero-padded. **Times:** 24h `HH:MM`.
-- **Todo syntax:** `- [ ]` open, `- [x]` done, `- [>]` deferred, `- [-]` cancelled. Inline tags: `@person-slug`, `#project-slug`.
+- **Todo syntax:** `- [ ]` open, `- [x]` done, `- [>]` deferred, `- [-]` cancelled. Inline tags: `#project-slug`. Person references inside text: `[[firstname-lastname]]`.
+- **Time-tagged todos (reminders):** append `(@YYYY-MM-DD)` or `(@YYYY-MM-DD HH:MM)` to any todo — e.g. `- [ ] Check in with [[athena]] (@2026-04-24 09:00)`. This format is read by the Obsidian Reminder plugin (iOS + Mac) so it can fire a native notification. Always use absolute dates, not relative ("next Friday"). Prefer morning times (`09:00`) if none specified. Only add a date when the todo is genuinely time-sensitive — don't pollute every checkbox.
+- **Claude's behaviour around reminders:** when Jivesh says "remind me to X on/at Y", (1) create the time-tagged todo in the most specific relevant file (project > area > today's daily > `todos.md`), (2) mirror it into today's daily `## Todos` if it fires today, (3) tell him the exact file and line, and remind him the notification only fires if Obsidian Reminder is installed and running.
 - **Links:** `[[filename-without-extension]]`. Use `[[folder/file]]` only when basename is ambiguous.
 - **Names:** people files `firstname-lastname.md` lowercase hyphenated; areas/projects/goals short-kebab-case.
 - New name with no file: create a stub and link to it — don't wait for permission.
