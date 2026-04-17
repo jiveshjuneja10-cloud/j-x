@@ -29,15 +29,11 @@ started: 2026-04-17
 
 ## Projects
 
-- 
+- [[secure-next-role]]
 
 ## People
 
-- 
-
-## Related goals
-
-- [[secure-next-role]]
+- [[athena]] — main contact
 
 ## Notes
 
