@@ -5,8 +5,8 @@ name: Athena
 
 # Athena
 
-**Role:** Main contact at [[artifact]]
-**Relationship:** Colleague — primary point of contact for the engagement
+**Role:** Line manager at [[artifact]]
+**Relationship:** Manager — primary decision-maker for conversion path
 **Context:** Surname TBD — rename file to `firstname-lastname.md` when known.
 
 ## Recent interactions

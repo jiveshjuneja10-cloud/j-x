@@ -33,7 +33,7 @@ started: 2026-04-17
 
 ## People
 
-- [[athena]] — main contact
+- [[athena]] — line manager
 
 ## Notes
 

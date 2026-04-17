@@ -12,7 +12,7 @@ created: 2026-04-17
 ## Current state
 
 - Day 1 of [[artifact]] contract. No offers in hand. Network thin. Consulting ways-of-working unfamiliar.
-- Main contact at Artifact: [[athena]].
+- Line manager at Artifact: [[athena]] — primary decision-maker on the conversion path.
 
 ## Todos
 
